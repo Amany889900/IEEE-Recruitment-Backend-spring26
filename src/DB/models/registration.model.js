@@ -45,7 +45,7 @@ const registrationSchema = new mongoose.Schema({
     level: { 
         type: String, 
         required: true,
-        enum: ['Freshmen', 'Sophomore', 'Junior 1 or 2', 'Senior']
+        enum: ['Freshmen', 'Sophomore', 'Junior', 'Senior 1 or 2']
     },
     facultyId: { 
         type: String, 
@@ -67,7 +67,6 @@ const registrationSchema = new mongoose.Schema({
     },
     linkedInUrl: { 
         type: String, 
-        required: true,
         trim: true 
     },
     firstPreference: { 

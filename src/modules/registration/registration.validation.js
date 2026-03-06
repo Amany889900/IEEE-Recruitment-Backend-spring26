@@ -6,7 +6,7 @@ const customId = (value, helper) => {
 };
 
 const preferencesList = ['Media and Marketing', 'IT', 'PR', 'Logistics', 'HR', 'FR'];
-const levelsList = ['Freshmen', 'Sophomore', 'Junior 1 or 2', 'Senior'];
+const levelsList = ['Freshmen', 'Sophomore', 'Junior', 'Senior 1 or 2'];
 const hoursList = ['Less than 4', '4-6', '6-10', 'More than 10'];
 
 const fileValidationSchema = Joi.object({
@@ -30,7 +30,13 @@ export const registerSchema = {
         level: Joi.string().valid(...levelsList).required(),
         facultyId: Joi.string().required(),
         nationalId: Joi.string().length(14).required(),
-        linkedInUrl: Joi.string().uri().required(),
+        linkedInUrl: Joi.string()
+    .lowercase()
+    .trim()
+    .replace(/^www\./, 'https://www.') // Automatically adds https if they start with www
+    .uri({
+      scheme: [/https?/]
+    }),
         firstPreference: Joi.string().valid(...preferencesList).required(),
         secondPreference: Joi.string().valid(...preferencesList).required(),
         interestReason: Joi.string().max(500).required(),
@@ -54,7 +60,13 @@ export const updateRegistrationSchema = {
         level: Joi.string().valid(...levelsList),
         facultyId: Joi.string(),
         nationalId: Joi.string().length(14),
-        linkedInUrl: Joi.string().uri(),
+        linkedInUrl: Joi.string()
+    .lowercase()
+    .trim()
+    .replace(/^www\./, 'https://www.') // Automatically adds https if they start with www
+    .uri({
+      scheme: [/https?/]
+    }),
         firstPreference: Joi.string().valid(...preferencesList),
         secondPreference: Joi.string().valid(...preferencesList),
         interestReason: Joi.string().max(500),
