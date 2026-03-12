@@ -5,7 +5,7 @@ const customId = (value, helper) => {
     return Types.ObjectId.isValid(value) ? value : helper.message("Invalid Object ID");
 };
 
-const preferencesList = ['Media and Marketing', 'IT', 'PR & Logistics', 'HR', 'FR'];
+const preferencesList = ['Media and Marketing', 'IT', 'PR and Logistics', 'HR', 'FR'];
 const levelsList = ['Freshmen', 'Sophomore', 'Junior', 'Senior 1 or 2'];
 const hoursList = ['Less than 4', '4-6', '6-10', 'More than 10'];
 
