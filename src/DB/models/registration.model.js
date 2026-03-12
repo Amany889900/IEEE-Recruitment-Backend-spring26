@@ -76,7 +76,6 @@ const registrationSchema = new mongoose.Schema({
     },
     secondPreference: { 
         type: String, 
-        required: true,
         enum: ['Media and Marketing', 'IT', 'PR and Logistics', 'HR', 'FR']
     },
     interestReason: { 
