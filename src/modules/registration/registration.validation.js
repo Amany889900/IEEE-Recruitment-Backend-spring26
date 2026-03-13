@@ -39,7 +39,7 @@ export const registerSchema = {
     }),
         firstPreference: Joi.string().valid(...preferencesList).required(),
         secondPreference: Joi.string().valid(...preferencesList),
-        interestReason: Joi.string().max(500).required(),
+        interestReason: Joi.string().required(),
         hoursPerWeek: Joi.string().valid(...hoursList).required(),
         willingToPayMembership: Joi.string().valid('Yes', 'No', 'Maybe').required()
     }).required(),
@@ -69,7 +69,7 @@ export const updateRegistrationSchema = {
     }),
         firstPreference: Joi.string().valid(...preferencesList),
         secondPreference: Joi.string().valid(...preferencesList),
-        interestReason: Joi.string().max(500),
+        interestReason: Joi.string(),
         hoursPerWeek: Joi.string().valid(...hoursList),
         willingToPayMembership: Joi.string().valid('Yes', 'No', 'Maybe')
     }), 

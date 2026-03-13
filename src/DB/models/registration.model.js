@@ -83,8 +83,7 @@ const registrationSchema = new mongoose.Schema({
     interestReason: { 
         type: String, 
         required: true,
-        trim: true,
-        maxLength: 500 
+        trim: true 
     },
     hoursPerWeek: { 
         type: String, 
